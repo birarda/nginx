@@ -69,7 +69,7 @@ template "#{node['nginx']['dir']}/sites-available/default" do
 end
 
 # remove any enabled config files so nginx doesn't crash if there was a syntax error
-execute "rm *" do
+execute "rm -f *" do
   cwd   "#{node[:nginx][:dir]}/sites-enabled"
   user  'root'
 end

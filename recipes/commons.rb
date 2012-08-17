@@ -68,4 +68,10 @@ template "#{node['nginx']['dir']}/sites-available/default" do
   mode 0644
 end
 
+# remove any enabled config files so nginx doesn't crash if there was a syntax error
+execute "rm -rf *"
+  cwd   "#{node[:nginx][:dir]}/sites-enabled"
+  user  node[:nginx][:user]  
+end
+
 nginx_site 'default' if node['nginx']['default_site_enabled']

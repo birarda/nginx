@@ -71,7 +71,7 @@ end
 # remove any enabled config files so nginx doesn't crash if there was a syntax error
 execute "rm *" do
   cwd   "#{node[:nginx][:dir]}/sites-enabled"
-  user  node[:nginx][:user]  
+  user  'root'
 end
 
 nginx_site 'default' if node['nginx']['default_site_enabled']

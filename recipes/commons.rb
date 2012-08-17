@@ -19,6 +19,10 @@
 #
 
 # let's kill apache 2 to make sure it isn't stealing our port
+service 'apache2' do
+  action  :stop
+end
+
 package 'apache2' do
   action  :remove
 end

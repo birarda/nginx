@@ -17,6 +17,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# let's kill apache 2 to make sure it isn't stealing our port
+package 'apache2' do
+  action  :remove
+end
+
 directory node['nginx']['dir'] do
   owner "root"
   group "root"

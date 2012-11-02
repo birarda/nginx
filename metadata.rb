@@ -17,10 +17,21 @@ end
 
 depends 'ohai', '~> 1.0.2'
 
+
 attribute "nginx/dir",
   :display_name => "Nginx Directory",
   :description => "Location of nginx configuration files",
   :default => "/etc/nginx"
+
+attribute "nginx/sites_dir",
+  :display_name => "Nginx site directory",
+  :description => "default location of nginx sites",
+  :default => "/var/www"
+
+attribute "nginx/certs_dir",
+  :display_name => "Nginx SSL certificate directory",
+  :description => "default location of SSL certificates",
+  :default => "/etc/nginx/certs"
 
 attribute "nginx/log_dir",
   :display_name => "Nginx Log Directory",

@@ -25,9 +25,6 @@ default['nginx']['dir'] = "/etc/nginx"
 default['nginx']['log_dir'] = "/var/log/nginx"
 default['nginx']['binary'] = "/usr/sbin/nginx"
 
-default['nginx']['cert_dir'] = "#{node[:nginx][:dir]}/certs"
-default['nginx']['sites_dir'] = "/var/www"
-
 case node['platform']
 when "debian","ubuntu"
   default['nginx']['user']       = "www-data"

@@ -71,6 +71,15 @@ template "nginx.conf" do
   notifies :reload, 'service[nginx]', :immediately
 end
 
+template "nginx.conf" do
+  path "#{node['nginx']['dir']}/strong-ssl.conf"
+  source "strong-ssl.conf.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :reload, 'service[nginx]', :immediately
+end
+
 template "#{node['nginx']['dir']}/sites-available/default" do
   source "default-site.erb"
   owner "root"

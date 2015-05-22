@@ -71,8 +71,8 @@ template "nginx.conf" do
   notifies :reload, 'service[nginx]', :immediately
 end
 
-template "nginx.conf" do
-  path "#{node['nginx']['dir']}/strong-ssl.conf"
+template "strong-ssl.conf" do
+  path "#{node['nginx']['dir']}/conf.d/strong-ssl.conf"
   source "strong-ssl.conf.erb"
   owner "root"
   group "root"
